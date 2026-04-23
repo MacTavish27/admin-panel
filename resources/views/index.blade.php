@@ -1,3 +1,10 @@
+<?php
+    $currentLocale = app()->getLocale();
+    $segments = request()->segments();
+    $segments[0] = 'en';
+?>
+
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,10 +25,17 @@
           <p>Apply to the Aral School - Deadline 5th of October 2025</p>
         </div>
         <div class="lang-togglebox">
-          <a href="#" type="button" id="en" class="selected">EN</a>
-          <a href="#" type="button" id="uz">UZ</a>
-          <a href="#" type="button" id="kk">KK</a>
-          <a href="#" type="button" id="ru">RU</a>
+        @foreach(['en','uz','kk','ru'] as $lang)
+          @php
+        $segments[0] = $lang;
+        $url = '/' . implode('/', $segments);
+          @endphp
+
+          <a href="{{ $url }}"
+          class="{{ $currentLocale == $lang ? 'selected' : '' }}">
+            {{ strtoupper($lang) }}
+         </a>
+        @endforeach
         </div>
       </div>
       <div id="navigation">
@@ -30,15 +44,15 @@
         </div>
         <div class="navbar-square"></div>
         <div class="menu">
-          <ul>
-            <li><a href="#header">Aral School</a></li>
-            <li><a href="#programme-vision">Programme</a></li>
-            <li><a href="#who-can-apply">Apply</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#FAQ">FAQ</a></li>
-            <li><a href="#about">About ACDF</a></li>
-            <li><a href="#">Aral Culture Summit</a></li>
-          </ul>
+<ul>
+@foreach($menuItems as $item)
+    <li>
+        <a href="{{ $item->url }}">
+            {{ $item->title }}
+        </a>
+    </li>
+@endforeach
+</ul>
         </div>
         <!-- Hamburger -->
         <div class="hamburger" id="hamburger">

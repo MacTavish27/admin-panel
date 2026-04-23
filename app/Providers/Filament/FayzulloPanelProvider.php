@@ -26,7 +26,7 @@ class FayzulloPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('fayzullo')
-            ->path('fayzullo')
+            ->path('admin')
             ->login()
             ->colors([
                 'primary' => Color::Amber,
