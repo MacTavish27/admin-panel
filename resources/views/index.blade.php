@@ -2,6 +2,8 @@
     $currentLocale = app()->getLocale();
     $segments = request()->segments();
     $segments[0] = 'en';
+    $sectionsByType = $sectionsByType ?? collect($sections ?? [])->groupBy('type');
+    $faqSections = $sectionsByType->get('faq', collect());
 
 ?>
 
@@ -950,181 +952,26 @@
     </section>
     <section id="FAQ">
       <div class="faq-box">
-        <p class="faq-title">FAQ</p>
-        <div class="faq-listbox">
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
+        <p class="faq-title">{{ $faqSections->first()?->title ?? 'FAQ' }}</p>
 
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
+        @foreach ($faqSections as $section)
+          @if ($section->items->isNotEmpty())
+            <div class="faq-listbox">
+              @foreach ($section->items as $item)
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <p>{{ $item->title }}</p>
+                    <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
+                  </div>
 
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
+                  <div class="faq-answer">
+                    <p>{{ $item->content }}</p>
+                  </div>
+                </div>
+              @endforeach
             </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
-
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
-
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
-
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="faq-listbox">
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
-
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
-
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
-
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
-
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <p>
-                What is the tuition fee for the Aral School programme and does
-                the School provide a monthly stipend to cover participants’
-                expenses?
-              </p>
-              <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
-            </div>
-
-            <div class="faq-answer">
-              <p>
-                The programme has no tuition fee. Participants receive a monthly
-                stipend, accommodation, and research support.
-              </p>
-            </div>
-          </div>
-        </div>
+          @endif
+        @endforeach
       </div>
       <img src="{{ asset('gallery/FAQ-1.jpg') }}" alt="faq-1" class="faq-img-1" />
       <img src="{{ asset('gallery/FAQ-2.jpg') }}" alt="faq-2" class="faq-img-2" />

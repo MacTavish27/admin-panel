@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MenuItem;
-use Illuminate\Http\Request;
+use App\Models\Section;
 
 class MenuController extends Controller
 {
@@ -12,7 +12,11 @@ class MenuController extends Controller
         app()->setLocale($locale);
 
         $menuItems = MenuItem::with('translations')->orderBy('order')->get();
+        $sections = Section::with('items')->ordered()->get();
+        $sectionsByType = $sections
+            ->groupBy('type')
+            ->map(fn($group) => $group->values());
 
-        return view('index', compact('menuItems'));
+        return view('index', compact('menuItems', 'sections', 'sectionsByType'));
     }
 }
