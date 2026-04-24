@@ -15,12 +15,12 @@ class MenuItem extends Model
 
     public function getTitleAttribute()
     {
-        // $locale = app()->getLocale();
+        $locale = app()->getLocale();
 
-        // $translation = $this->translations
-        //     ->where('locale', $locale)
-        //     ->first();
+        $translation = $this->translations
+            ->where('locale', $locale)
+            ->first();
 
-        return $this->translations->first()?->title ?? '';
+        return $translation ? $translation->title : null;
     }
 }

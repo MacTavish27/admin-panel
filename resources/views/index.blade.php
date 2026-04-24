@@ -2,6 +2,7 @@
     $currentLocale = app()->getLocale();
     $segments = request()->segments();
     $segments[0] = 'en';
+
 ?>
 
 
