@@ -1271,7 +1271,7 @@ img {
     padding: 48px 0;
 }
 
-.faq-box>p:not(.faq-title) {
+.faq-box > p:not(.faq-title) {
     flex: 0 0 100%;
     max-width: 100%;
     padding: 48px 48px 0;
@@ -2114,9 +2114,692 @@ body {
         grid-column: 1 / -1;
         margin: 0;
     }
+
+    #FAQ {
+        min-height: 0;
+        padding: 128px 20px 48px;
+    }
+
+    .faq-box {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        transform: none;
+        margin: 0 auto;
+    }
+
+    .faq-title {
+        top: -64px;
+    }
+
+    .faq-box > p:not(.faq-title) {
+        padding: 32px 32px 0;
+    }
+
+    .faq-listbox {
+        padding: 32px 0;
+    }
+
+    .faq-item {
+        padding: 0 32px;
+    }
+
+    .faq-img-1,
+    .faq-img-2,
+    .faq-img-3 {
+        width: 240px;
+        height: auto;
+        opacity: 0.5;
+    }
+
+    .faq-img-1 {
+        right: 0;
+    }
+
+    .faq-img-2 {
+        left: 0;
+        bottom: 24px;
+    }
+
+    .faq-img-3 {
+        right: 160px;
+    }
+
+    .faq-ornament {
+        width: 120px;
+        height: 120px;
+    }
+
+    #about {
+        grid-template-columns: 1fr;
+        margin-top: 96px;
+        height: auto;
+        padding: 0 20px 48px;
+    }
+
+    #about img {
+        display: none;
+    }
+
+    .about-box {
+        position: relative;
+        left: auto;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        background-position: center;
+        padding-bottom: 32px;
+    }
+
+    .about-title {
+        grid-column: 1 / -1;
+        height: auto;
+        padding: 24px 24px 16px;
+    }
+
+    .about-title p {
+        font-size: 52px;
+    }
+
+    .about-left,
+    .about-right {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: calc(100% - 48px);
+        margin: 24px auto 0;
+    }
+
+    .about-left {
+        height: auto;
+        padding: 24px;
+    }
+
+    .about-left p {
+        font-size: 24px;
+        line-height: 1.35;
+    }
+
+    .about-right {
+        padding: 24px;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1180px) and (min-width: 641px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    #header {
+        grid-template-columns: 1fr;
+    }
+
+    #header-image,
+    .header-box {
+        grid-column: 1 / -1;
+    }
+
+    #header-image {
+        height: 480px;
+        min-height: 0;
+    }
+
+    #header-image img {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .header-box {
+        height: auto;
+        min-height: 0;
+    }
+
+    #intro {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+    }
+
+    .intro-left-box,
+    .intro-right-box {
+        display: none;
+    }
+
+    .intro-info,
+    .apply-box {
+        grid-column: 1 / -1;
+        border-right: 0;
+    }
+
+    .intro-info {
+        padding: 56px 32px 32px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        font-size: 24px;
+    }
+
+    #climate,
+    #programme-vision,
+    #research,
+    #programme-outcomes,
+    #who-can-apply,
+    #leader-area,
+    #team,
+    #rest-members,
+    #mentors,
+    #FAQ,
+    #about,
+    #footer {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 0;
+        row-gap: 24px;
+    }
+
+    .programme-line-right,
+    .programme-line-left,
+    .outcome-line-left-box,
+    .graphic_ornament_programme_1,
+    .graphic_ornament_programme_2,
+    .team-ornament,
+    .mentor-line,
+    .profile-ornament,
+    .faq-img-1,
+    .faq-img-2,
+    .faq-img-3,
+    .faq-ornament,
+    #about > img {
+        display: none;
+    }
+
+    .vision-title,
+    .research-theme,
+    .research-description,
+    .outcome-title,
+    .apply-theme,
+    .team-title,
+    .mentor-header,
+    .about-title,
+    .email-form,
+    .footer-overlay {
+        grid-column: 1 / -1;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+    }
+
+    .vision-title,
+    .apply-theme,
+    .outcome-title,
+    .team-title,
+    .about-title,
+    .mentor-header-box,
+    .theme-box {
+        padding: 24px 32px 16px;
+    }
+
+    .vision-title p,
+    .theme-box p,
+    .outcome-title p,
+    .apply-theme p,
+    .team-title p,
+    .mentor-header-box p,
+    .about-title p {
+        font-size: clamp(40px, 5vw, 56px);
+    }
+
+    #climate {
+        margin-top: 0;
+    }
+
+    .earth-photo,
+    .climate-description,
+    .research-theme,
+    .research-description,
+    .theme-card-left,
+    .theme-card-right,
+    .outcome-box,
+    .apply-image,
+    .apply-image-description,
+    .application-box-one,
+    .application-box-two,
+    .application-box-three,
+    .application-box-four,
+    .team-lead-bio,
+    .team-lead-bio-right,
+    .team-member-bio-1,
+    .team-member-bio-2,
+    .member-box,
+    .member-box-2,
+    .member-box-3,
+    .member-box-4,
+    .member-box-5,
+    .member-box-6,
+    .contact,
+    .social-media,
+    .logo-footer {
+        grid-column: 1 / -1;
+    }
+
+    .earth-photo {
+        max-height: none;
+        height: 420px;
+    }
+
+    .climate-description p,
+    .research-description p,
+    .apply-image-description p {
+        width: auto;
+        height: auto;
+        max-width: none;
+        margin: 0;
+        padding: 32px;
+    }
+
+    .about,
+    .goals,
+    .mission,
+    .programme-image-one,
+    .programme-image-two,
+    .image-card,
+    .outcome-box,
+    .apply-image,
+    .apply-image-description,
+    .application-box-one,
+    .application-box-two,
+    .application-box-three,
+    .application-box-four,
+    .member-box,
+    .member-box-2,
+    .member-box-3,
+    .member-box-4,
+    .member-box-5,
+    .member-box-6 {
+        width: min(calc(100% - 40px), 760px);
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about,
+    .goals,
+    .mission {
+        grid-column: 1 / -1;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        margin-top: 0;
+    }
+
+    .programme-image-one,
+    .programme-image-two {
+        display: block;
+        grid-column: 1 / -1;
+        height: auto;
+        margin-top: 0;
+    }
+
+    .programme-image-one {
+        max-width: 260px;
+    }
+
+    .programme-image-two {
+        max-width: 360px;
+    }
+
+    .modal-text,
+    .mission-text {
+        width: min(calc(100% - 24px), 360px);
+        height: auto;
+        min-height: 88px;
+        padding: 20px 24px;
+    }
+
+    .modal.active .modal-description {
+        position: static;
+        width: 100%;
+        max-height: none;
+        padding: 24px;
+        background-color: #000;
+        color: #fff;
+    }
+
+    .theme-box,
+    .mentor-header-box,
+    .apply-theme,
+    .about-title {
+        border-right: 0;
+    }
+
+    .theme-card-left,
+    .theme-card-right {
+        position: relative;
+        align-items: stretch;
+        padding-right: 0;
+    }
+
+    .image-card {
+        height: auto;
+        min-height: 0;
+    }
+
+    .image-card img {
+        height: 360px;
+    }
+
+    .image-card p {
+        padding: 96px 32px 32px;
+    }
+
+    .title-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: min(calc(100% - 40px), 420px);
+        height: auto;
+        min-height: 120px;
+        margin: -56px auto 0;
+        padding: 28px 32px;
+    }
+
+    .number {
+        top: 20px;
+        left: 20px;
+    }
+
+    .outcome-title {
+        padding-bottom: 24px;
+    }
+
+    .outcome-box {
+        height: auto;
+        min-height: 0;
+        margin: 0 auto;
+    }
+
+    .apply-theme {
+        height: auto;
+        border-bottom: 1px solid #000;
+    }
+
+    .apply-image {
+        height: auto;
+        aspect-ratio: 16 / 8;
+        margin-top: 0;
+    }
+
+    .apply-image-description {
+        border-right: 0;
+    }
+
+    #who-can-apply .apply-box {
+        grid-column: 1 / -1;
+        width: min(calc(100% - 40px), 760px);
+        height: auto;
+        margin: 0 auto;
+        padding: 20px 24px;
+    }
+
+    .application-box-one,
+    .application-box-two,
+    .application-box-three,
+    .application-box-four {
+        margin-top: 0;
+        padding-bottom: 40px;
+    }
+
+    .application-box-two img,
+    .application-box-three img,
+    .apply-square-shape-one {
+        display: none;
+    }
+
+    .application-content p,
+    .application-content ul,
+    .application-content-form ol,
+    .note,
+    .application-note {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .application-form {
+        position: relative;
+        top: auto;
+        left: auto;
+        grid-column: 1 / -1;
+        width: min(calc(100% - 40px), 760px);
+        margin: 0 auto;
+    }
+
+    #leader-area,
+    #team,
+    #rest-members,
+    #mentors {
+        padding-bottom: 40px;
+    }
+
+    #leader-area .profile-box,
+    #leader-area .profile-desc,
+    .profile-desc,
+    .team-lead-bio,
+    .team-lead-bio-right,
+    .team-member-bio-1,
+    .team-member-bio-2 {
+        grid-column: 1 / -1;
+        width: min(calc(100% - 40px), 760px);
+        margin: 0 auto;
+        padding: 0 20px;
+        border-right: 0;
+    }
+
+    .profile-box {
+        grid-column: 1 / -1;
+        margin: 0 auto;
+        z-index: 100;
+    }
+
+    .profile-desc {
+        margin-top: 16px;
+    }
+
+    .team-lead-bio,
+    .team-lead-bio-right,
+    .team-member-bio-1,
+    .team-member-bio-2 {
+        margin-top: 0;
+        padding-bottom: 12px;
+    }
+
+    .member-box,
+    .member-box-2,
+    .member-box-3,
+    .member-box-4,
+    .member-box-5,
+    .member-box-6 {
+        position: relative;
+        top: auto;
+        left: auto;
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .absolute,
+    .absolute-2 {
+        position: static;
+        width: auto;
+    }
+
+    .margin-top {
+        margin-top: 0;
+    }
+
+    #FAQ {
+        border: 0;
+        min-height: 0;
+        background-color: #000;
+        padding: 80px 20px 40px;
+    }
+
+    .faq-box {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: min(calc(100% - 40px), 920px);
+        transform: none;
+        margin: 0 auto;
+        grid-column: 1 / -1;
+    }
+
+    .faq-title {
+        top: -56px;
+    }
+
+    .faq-box > p:not(.faq-title) {
+        padding: 32px 32px 0;
+    }
+
+    .faq-listbox {
+        padding: 24px 0 32px;
+    }
+
+    .faq-item {
+        padding: 0 32px;
+    }
+
+    #about {
+        margin-top: 80px;
+        padding: 0 20px 40px;
+    }
+
+    .about-box {
+        position: relative;
+        left: auto;
+        grid-column: 1 / -1;
+        width: min(calc(100% - 40px), 920px);
+        height: auto;
+        min-height: 0;
+        margin: 0 auto;
+        padding-bottom: 32px;
+        background-position: center;
+    }
+
+    .about-left,
+    .about-right {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: calc(100% - 48px);
+        height: auto;
+        margin: 24px auto 0;
+        padding: 24px 28px;
+    }
+
+    .about-left p {
+        font-size: 24px;
+        line-height: 1.35;
+    }
+
+    #footer {
+        border-top: 1px solid #000;
+        padding: 24px 20px 40px;
+    }
+
+    .top-layer,
+    .bottom-layer {
+        display: none;
+    }
+
+    .email-form,
+    .contact,
+    .social-media,
+    .logo-footer,
+    .footer-overlay,
+    .footer-banner,
+    .organiser,
+    .privacy {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    .email-form {
+        padding: 0 0 24px;
+        border-bottom: 1px solid #000;
+        border-right: 0;
+    }
+
+    .form {
+        max-width: none;
+        width: 100%;
+    }
+
+    .contact,
+    .social-media {
+        padding: 0;
+    }
+
+    .logo-footer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 12px 0;
+        min-height: 120px;
+    }
+
+    #footer-aral,
+    #footer-school {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin: 0;
+        width: auto;
+    }
+
+    #footer-aral {
+        max-width: 140px;
+    }
+
+    #footer-school {
+        max-width: 220px;
+    }
+
+    .footer-square {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        flex: 0 0 22px;
+    }
+
+    .footer-overlay {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        padding-top: 24px;
+        border-top: 1px solid #000;
+    }
+
+    .footer-banner {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .privacy ul {
+        padding-left: 18px;
+    }
+}
+
+@media (max-width: 640px) {
     .grid-box:nth-child(2) {
         border-right: 0;
     }

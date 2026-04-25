@@ -3,6 +3,7 @@
     $segments = request()->segments();
     $segments[0] = 'en';
     $sectionsByType = $sectionsByType ?? collect($sections ?? [])->groupBy('type');
+    $headerSections = $sectionsByType->get('header', collect());
     $faqSections = $sectionsByType->get('faq', collect());
 
 ?>
@@ -89,7 +90,8 @@
     </section>
     <section id="header">
       <div id="header-image">
-        <img src="{{ asset('gallery/Stocksy.png') }}" alt="Stocksy image" />
+        <?php echo $headerSections->first()?->image  ?>
+        <img src="{{ $headerSections->first()?->image ?? null }}" alt="Stocksy image" />
       </div>
       <div class="header-box overlay-bg-color">
         <div class="header-text">

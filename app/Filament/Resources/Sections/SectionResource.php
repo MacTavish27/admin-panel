@@ -18,6 +18,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use App\Filament\Resources\Sections\RelationManagers\ItemsRelationManager;
+use Filament\Forms\Components\Select;
 
 class SectionResource extends Resource
 {
@@ -28,9 +29,21 @@ class SectionResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema->schema([
-            TextInput::make('type')
+            Select::make('type')
                 ->required()
-                ->placeholder('header, intro, faq, team'),
+                ->options([
+                    'header' => 'Header',
+                    'intro' => 'Intro',
+                    'programme_vision' => 'Programme Vision',
+                    'research' => 'Research',
+                    'programme_outcomes' => 'Programme Outcomes',
+                    'apply' => 'Apply',
+                    'team' => 'Team',
+                    'mentors' => 'Mentors',
+                    'faq' => 'FAQ',
+                    'about' => 'About',
+                    'footer' => 'Footer',
+                ]),
 
             TextInput::make('title'),
 
@@ -49,13 +62,7 @@ class SectionResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table
-            ->columns([
-                TextColumn::make('type')->searchable(),
-                TextColumn::make('title')->limit(30),
-                TextColumn::make('order')->sortable(),
-            ])
-            ->defaultSort('order');
+        return SectionsTable::configure($table);
     }
 
     public static function getRelations(): array
