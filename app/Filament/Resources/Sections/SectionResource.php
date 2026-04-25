@@ -51,8 +51,10 @@ class SectionResource extends Resource
                 ->rows(5),
 
             FileUpload::make('image')
-                ->directory('sections')
-                ->image(),
+                ->disk('public')
+                ->directory('images')
+                ->image()
+                ->visibility('public'),
 
             TextInput::make('order')
                 ->numeric()

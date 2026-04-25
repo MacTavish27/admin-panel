@@ -91,7 +91,7 @@
     <section id="header">
       <div id="header-image">
         <?php echo $headerSections->first()?->image  ?>
-        <img src="{{ $headerSections->first()?->image ?? null }}" alt="Stocksy image" />
+        <img src="{{ asset('storage/' . $headerSections->first()?->image) }}" alt="Header Image">
       </div>
       <div class="header-box overlay-bg-color">
         <div class="header-text">
