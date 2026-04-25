@@ -90,17 +90,12 @@
     </section>
     <section id="header">
       <div id="header-image">
-        <?php echo $headerSections->first()?->image  ?>
         <img src="{{ asset('storage/' . $headerSections->first()?->image) }}" alt="Header Image">
       </div>
       <div class="header-box overlay-bg-color">
         <div class="header-text">
           <p>
-            <span>The Aral Sea</span> is a place where all the most urgent
-            concerns of today come together. Soil, water, energy, food, textiles
-            and air quality – it can be seen as the live laboratory of the
-            future and can help us rethink what's possible for many generations
-            to come.  
+            {!! $headerSections->first()?->items->first()?->content !!}
           </p>
         </div>
       </div>
