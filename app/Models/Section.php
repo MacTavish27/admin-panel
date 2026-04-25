@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Section extends Model
 {
     protected $fillable = [
         'type',
-        'title',
-        'content',
+        'name',
         'image',
         'extra',
         'order'
@@ -30,8 +30,13 @@ class Section extends Model
         return $query->where('type', $type);
     }
 
-    public function items()
+    public function contents(): HasMany
     {
-        return $this->hasMany(SectionItem::class)->orderBy('order');
+        return $this->hasMany(SectionContent::class)->orderBy('order');
+    }
+
+    public function items(): HasMany
+    {
+        return $this->contents();
     }
 }

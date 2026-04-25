@@ -12,7 +12,7 @@ class MenuController extends Controller
         app()->setLocale($locale);
 
         $menuItems = MenuItem::with('translations')->orderBy('order')->get();
-        $sections = Section::with('items')->ordered()->get();
+        $sections = Section::with(['contents.translations'])->ordered()->get();
         $sectionsByType = $sections
             ->groupBy('type')
             ->map(fn($group) => $group->values());

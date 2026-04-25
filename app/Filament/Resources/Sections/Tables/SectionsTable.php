@@ -15,8 +15,8 @@ class SectionsTable
     {
         return $table
             ->columns([
+                TextColumn::make('name')->searchable(),
                 TextColumn::make('type')->searchable(),
-                TextColumn::make('title')->limit(30),
                 TextColumn::make('order')->sortable(),
             ])
             ->defaultSort('order')

@@ -5,6 +5,11 @@
     $sectionsByType = $sectionsByType ?? collect($sections ?? [])->groupBy('type');
     $headerSections = $sectionsByType->get('header', collect());
     $faqSections = $sectionsByType->get('faq', collect());
+    $headerSection = $headerSections->first();
+    $headerBody = $headerSection?->contents->firstWhere('kind', 'rich_text')?->translated_content
+        ?? $headerSection?->contents->firstWhere('kind', 'section_heading')?->translated_content
+        ?? $headerSection?->contents->first()?->translated_content;
+    $faqHeading = $faqSections->first()?->contents->firstWhere('kind', 'section_heading');
 
 ?>
 
@@ -90,12 +95,12 @@
     </section>
     <section id="header">
       <div id="header-image">
-        <img src="{{ asset('storage/' . $headerSections->first()?->image) }}" alt="Header Image">
+        <img src="{{ asset('storage/' . $headerSection?->image) }}" alt="Header Image">
       </div>
       <div class="header-box overlay-bg-color">
         <div class="header-text">
           <p>
-            {!! $headerSections->first()?->items->first()?->content !!}
+            {!! $headerBody !!}
           </p>
         </div>
       </div>
@@ -949,20 +954,24 @@
     </section>
     <section id="FAQ">
       <div class="faq-box">
-        <p class="faq-title">{{ $faqSections->first()?->title ?? 'FAQ' }}</p>
+        <p class="faq-title">{{ $faqHeading?->translated_title ?? 'FAQ' }}</p>
 
         @foreach ($faqSections as $section)
-          @if ($section->items->isNotEmpty())
+          @php
+            $faqItems = $section->contents->where('kind', 'faq_item')->values();
+          @endphp
+
+          @if ($faqItems->isNotEmpty())
             <div class="faq-listbox">
-              @foreach ($section->items as $item)
+              @foreach ($faqItems as $item)
                 <div class="faq-item">
                   <div class="faq-question">
-                    <p>{{ $item->title }}</p>
+                    <p>{{ $item->translated_title }}</p>
                     <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
                   </div>
 
                   <div class="faq-answer">
-                    <p>{{ $item->content }}</p>
+                    <p>{{ $item->translated_content }}</p>
                   </div>
                 </div>
               @endforeach

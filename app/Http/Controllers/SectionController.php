@@ -8,7 +8,7 @@ class SectionController extends Controller
 {
     public function index()
     {
-        $sections = Section::with('items')->ordered()->get();
+        $sections = Section::with(['contents.translations'])->ordered()->get();
         $sectionsByType = $sections
             ->groupBy('type')
             ->map(fn ($group) => $group->values());

@@ -5,20 +5,16 @@ namespace App\Filament\Resources\Sections;
 use App\Filament\Resources\Sections\Pages\CreateSection;
 use App\Filament\Resources\Sections\Pages\EditSection;
 use App\Filament\Resources\Sections\Pages\ListSections;
-use App\Filament\Resources\Sections\Schemas\SectionForm;
 use App\Filament\Resources\Sections\Tables\SectionsTable;
 use App\Models\Section;
 use BackedEnum;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\FileUpload;
-use App\Filament\Resources\Sections\RelationManagers\ItemsRelationManager;
-use Filament\Forms\Components\Select;
 
 class SectionResource extends Resource
 {
@@ -26,11 +22,18 @@ class SectionResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static string|\UnitEnum|null $navigationGroup = 'Content';
+
     public static function form(Schema $schema): Schema
     {
         return $schema->schema([
+            TextInput::make('name')
+                ->required()
+                ->helperText('Admin label used inside the panel only.'),
+
             Select::make('type')
                 ->required()
+                ->helperText('Select where this section is used on the public page.')
                 ->options([
                     'header' => 'Header',
                     'intro' => 'Intro',
@@ -44,11 +47,6 @@ class SectionResource extends Resource
                     'about' => 'About',
                     'footer' => 'Footer',
                 ]),
-
-            TextInput::make('title'),
-
-            Textarea::make('content')
-                ->rows(5),
 
             FileUpload::make('image')
                 ->disk('public')
@@ -69,9 +67,7 @@ class SectionResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            ItemsRelationManager::class,
-        ];
+        return [];
     }
 
     public static function getPages(): array
@@ -81,5 +77,10 @@ class SectionResource extends Resource
             'create' => CreateSection::route('/create'),
             'edit' => EditSection::route('/{record}/edit'),
         ];
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Sections';
     }
 }
