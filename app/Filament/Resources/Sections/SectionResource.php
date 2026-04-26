@@ -37,6 +37,7 @@ class SectionResource extends Resource
                 ->options([
                     'header' => 'Header',
                     'intro' => 'Intro',
+                    'climate' => 'Climate',
                     'programme_vision' => 'Programme Vision',
                     'research' => 'Research',
                     'programme_outcomes' => 'Programme Outcomes',

@@ -10,9 +10,9 @@ use App\Models\SectionContent;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\KeyValue;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -42,7 +42,13 @@ class SectionContentResource extends Resource
                 ->options([
                     'section_heading' => 'Section Heading',
                     'rich_text' => 'Rich Text',
+                    'cta' => 'Call To Action',
+                    'feature_card' => 'Feature Card',
                     'faq_item' => 'FAQ Item',
+                    'list_item' => 'List Item',
+                    'person' => 'Person Profile',
+                    'link' => 'Link',
+                    'media' => 'Media',
                     'content' => 'Generic Content',
                 ])
                 ->default('content')
@@ -52,11 +58,28 @@ class SectionContentResource extends Resource
                 ->label('Internal Key')
                 ->helperText('Optional admin key, for example header-body or faq-item-1.'),
 
-            TextInput::make('title')
+            RichEditor::make('title')
+                ->toolbarButtons([
+                    'bold',
+                    'italic',
+                    'bulletList',
+                    'orderedList',
+                    'link',
+                    'redo',
+                    'undo',
+                ])
                 ->helperText('Default title. Use translations for localized versions.'),
 
-            Textarea::make('content')
-                ->rows(6)
+            RichEditor::make('content')
+                ->toolbarButtons([
+                    'bold',
+                    'italic',
+                    'bulletList',
+                    'orderedList',
+                    'link',
+                    'redo',
+                    'undo',
+                ])
                 ->helperText('Default content. Use translations for localized versions.'),
 
             FileUpload::make('image')
@@ -67,7 +90,8 @@ class SectionContentResource extends Resource
 
             KeyValue::make('extra')
                 ->keyLabel('Key')
-                ->valueLabel('Value'),
+                ->valueLabel('Value')
+                ->helperText('Optional metadata, for example role, field, number, or url.'),
 
             TextInput::make('order')
                 ->numeric()

@@ -7,9 +7,9 @@ use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
@@ -32,11 +32,28 @@ class TranslationsRelationManager extends RelationManager
                     ])
                     ->required(),
 
-                TextInput::make('title')
+                RichEditor::make('title')
+                    ->toolbarButtons([
+                        'bold',
+                        'italic',
+                        'bulletList',
+                        'orderedList',
+                        'link',
+                        'redo',
+                        'undo',
+                    ])
                     ->maxLength(255),
 
-                Textarea::make('content')
-                    ->rows(6),
+                RichEditor::make('content')
+                    ->toolbarButtons([
+                        'bold',
+                        'italic',
+                        'bulletList',
+                        'orderedList',
+                        'link',
+                        'redo',
+                        'undo',
+                    ]),
             ]);
     }
 

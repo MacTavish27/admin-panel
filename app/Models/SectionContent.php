@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 class SectionContent extends Model
 {
@@ -52,5 +53,20 @@ class SectionContent extends Model
             : $this->translations()->where('locale', $locale)->first();
 
         return $translation?->{$attribute} ?: $this->getAttributeFromArray($attribute);
+    }
+
+    public function getImageUrlAttribute(): ?string
+    {
+        $path = $this->image;
+
+        if (! $path) {
+            return null;
+        }
+
+        if (Storage::disk('public')->exists($path)) {
+            return Storage::url($path);
+        }
+
+        return asset(ltrim($path, '/'));
     }
 }
