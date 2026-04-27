@@ -12,6 +12,11 @@ class SectionContentTranslation extends Model
         'locale',
         'title',
         'content',
+        'extra'
+    ];
+
+    protected $casts = [
+        'extra' => 'array',
     ];
 
     public function sectionContent(): BelongsTo

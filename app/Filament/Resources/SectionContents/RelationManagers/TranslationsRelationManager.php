@@ -7,6 +7,7 @@ use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -54,6 +55,11 @@ class TranslationsRelationManager extends RelationManager
                         'redo',
                         'undo',
                     ]),
+
+                KeyValue::make('extra')
+                    ->keyLabel('Key')
+                    ->valueLabel('Value')
+                    ->helperText('Optional translated metadata'),
             ]);
     }
 

@@ -463,7 +463,7 @@
       </div>
       <div class="profile-desc">
         <p class="leader-name">{{ strip_tags(html_entity_decode($teamChair?->translated_title)) }}</p>
-        <p class="leader-title">{{ data_get($teamChair?->extra, 'role') }}</p>
+        <p class="leader-title">{{ data_get($teamChair->translations->firstWhere('locale', $currentLocale)?->extra, 'role') ?? data_get($teamChair?->extra, 'role') }}</p>
       </div>
       <div class="team-lead-bio">
         <p>{!! $teamChairBioLeft?->translated_content !!}</p>
@@ -488,7 +488,7 @@
           </div>
           <div class="profile-desc">
             <p class="leader-name">{{ strip_tags(html_entity_decode($teamMember['member']?->translated_title)) }}</p>
-            <p class="leader-title">{{ data_get($teamMember['member']?->extra, 'role') }}</p>
+            <p class="leader-title">{{ data_get($teamMember['member']?->translations->firstWhere('locale', $currentLocale)?->extra, 'role') ?? data_get($teamMember['member']?->extra, 'role') }}</p>
           </div>
         </div>
         <div class="{{ $teamMember['bioClass'] }}">
@@ -516,7 +516,7 @@
           </div>
           <div class="profile-desc">
             <p class="leader-name">{{ strip_tags(html_entity_decode($teamMember['member']?->translated_title)) }}</p>
-            <p class="leader-title">{{ data_get($teamMember['member']?->extra, 'role') }}</p>
+            <p class="leader-title">{{ data_get($teamMember['member']?->translations->firstWhere('locale', $currentLocale)?->extra, 'role') ?? data_get($teamMember['member']?->extra, 'role') }}</p>
             <p>{!! $teamMember['member']?->translated_content !!}</p>
           </div>
         </div>
@@ -531,9 +531,7 @@
 
       @foreach ($mentorCards as $mentorCard)
         <div class="{{ $mentorCard['boxClass'] }}">
-          @if (data_get($mentorCard['member']?->extra, 'field'))
-            <p class="field">{{ data_get($mentorCard['member']?->extra, 'field') }}</p>
-          @endif
+          <p class="field">{{ data_get($mentorCard['member']?->translations->firstWhere('locale', $currentLocale)?->extra, 'field') ?? data_get($mentorCard['member']?->extra, 'field') }}</p>
           <div class="profile-box">
             <div class="profile-box-edge">
               <img
