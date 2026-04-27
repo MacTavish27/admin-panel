@@ -483,13 +483,13 @@ img {
 
 .modal.active .modal-description {
     position: absolute;
-    bottom: -400px;
+    top: 100%;
     right: 0;
-    max-height: 490px;
+    max-height: 690px;
     width: 710px;
     background-color: #000;
     color: #fff;
-    padding: 120px 100px 60px 92px;
+    padding: 100px 100px 60px 92px;
     z-index: 2;
 }
 
@@ -3089,6 +3089,15 @@ body {
         align-items: center;
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .modal.active .modal-description {
+        width: 100%;
+        max-height: none;
+        padding: 24px;
+        background-color: #000;
+        color: #fff;
+        z-index: 10;
     }
 
     .programme-image-one,
