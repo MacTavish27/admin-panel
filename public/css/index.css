@@ -2229,7 +2229,7 @@ body {
     }
 }
 
-@media (max-width: 1180px) and (min-width: 641px) {
+/* @media (max-width: 1180px) and (min-width: 641px) {
     body {
         overflow-x: hidden;
     }
@@ -2799,7 +2799,7 @@ body {
     .privacy ul {
         padding-left: 18px;
     }
-}
+} */
 
 @media (max-width: 640px) {
     .grid-box:nth-child(2) {
@@ -2916,9 +2916,8 @@ body {
     }
 
     #navbar {
-        position: relative;
+        position: fixed;
         height: auto;
-        background-color: #fcf4eb;
     }
 
     #navbar.scrolled {
