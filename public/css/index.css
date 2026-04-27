@@ -212,7 +212,7 @@ img {
     margin-top: 173px;
     position: relative;
     z-index: 2;
-    height: 100%;
+    min-height: 758px;
     scroll-margin-top: 150px;
 }
 
@@ -220,7 +220,7 @@ img {
     grid-column: 2/2;
     display: flex;
     align-items: center;
-    height: 500px;
+    min-height: 500px;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
     margin: auto 0;
@@ -256,7 +256,7 @@ img {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     border-top: 1px solid #000;
-    margin-top: 40px;
+    margin-top: 48px;
 }
 
 .intro-left-box {
@@ -1294,7 +1294,7 @@ img {
 }
 
 .faq-question p {
-    font-family: "SeasonSansTRIAL-Bold";
+    font-weight: bold;
 }
 
 .faq-answer {
@@ -1509,6 +1509,7 @@ img {
 
 .footer-title {
     font-family: "SeasonSansTRIAL-Bold";
+    font-weight: bold;
     text-transform: uppercase;
 }
 
@@ -1592,6 +1593,7 @@ img {
 
 .organiser p:first-child {
     font-family: "SeasonSansTRIAL-Bold";
+    font-weight: bold;
 }
 
 .footer-overlay {
@@ -3006,8 +3008,8 @@ body {
 
     .header-box {
         width: 100%;
-        height: 328px;
-        min-height: 0;
+        height: auto;
+        min-height: 328px;
         border-top: 0;
         border-bottom: 1px solid #000;
     }

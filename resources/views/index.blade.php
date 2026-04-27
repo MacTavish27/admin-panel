@@ -385,7 +385,7 @@
         <div class="apply-square-shape-one"></div>
       </div>
       <div class="application-box-one">
-        <p class="application-title">{{ strip_tags($applyBenefitsTitle?->translated_title) }}</p>
+        <p class="application-title">{{ strip_tags(html_entity_decode($applyBenefitsTitle?->translated_title)) }}</p>
         <div class="application-number"><p>1</p></div>
         <div class="application-content">
           <ul>
@@ -396,29 +396,29 @@
         </div>
       </div>
       <div class="application-box-two">
-        <p class="application-title">{{ $applyRequirementsTitle?->translated_title }}</p>
+        <p class="application-title">{{ strip_tags(html_entity_decode($applyRequirementsTitle?->translated_title)) }}</p>
         <div class="application-number"><p>2</p></div>
         <div class="application-content">
           <ul>
             @foreach ($applyRequirements as $item)
-              <li>{!! $item->translated_content !!}</li>
+              <li>{{ strip_tags(html_entity_decode($item->translated_content)) }}</li>
             @endforeach
           </ul>
         </div>
         <img src="{{ asset('svg/apply-line-two.svg') }}" alt="apply line two" />
       </div>
       <div class="application-box-three">
-        <p class="application-title">{{ $applySelection?->translated_title }}</p>
+        <p class="application-title">{{ strip_tags(html_entity_decode($applySelection?->translated_title)) }}</p>
         <div class="application-number"><p>3</p></div>
         <div class="application-content">
-          <p>{!! $applySelection?->translated_content !!}</p>
+          <p>{{ strip_tags(html_entity_decode($applySelection?->translated_content)) }}</p>
         </div>
         <img src="{{ asset('svg/apply-line-three.svg') }}" alt="apply line three" />
       </div>
       <div class="application-box-four">
-        <p class="application-title">{{ $applyDocumentsTitle?->translated_title }}</p>
+        <p class="application-title">{{ strip_tags(html_entity_decode($applyDocumentsTitle?->translated_title)) }}</p>
         <div class="application-form">
-          <p>{!! $applyDocumentsFormLabel?->translated_content !!}</p>
+          <p>{{ strip_tags(html_entity_decode($applyDocumentsFormLabel?->translated_content)) }}</p>
           <svg width="72px" height="1px">
             <line x1="0" y1="0" x2="72px" y2="0" stroke="black" />
           </svg>
@@ -426,13 +426,13 @@
         </div>
         <div class="application-number"><p>4</p></div>
         <div class="application-content-form">
-          <p class="note">{!! $applyDocumentsNote?->translated_content !!}</p>
+          <p class="note">{{ strip_tags(html_entity_decode($applyDocumentsNote?->translated_content)) }}</p>
           <ol class="remove-margin">
             @foreach ($applyDocuments as $item)
-              <li>{!! $item->translated_content !!}</li>
+              <li>{{ strip_tags(html_entity_decode($item->translated_content)) }}</li>
             @endforeach
           </ol>
-          <p class="application-note">{!! $applyDocumentsFooterNote?->translated_content !!}</p>
+          <p class="application-note">{{ strip_tags(html_entity_decode($applyDocumentsFooterNote?->translated_content)) }}</p>
         </div>
       </div>
     </section>
@@ -462,7 +462,7 @@
         />
       </div>
       <div class="profile-desc">
-        <p class="leader-name">{!! $teamChair?->translated_title !!}</p>
+        <p class="leader-name">{{ strip_tags(html_entity_decode($teamChair?->translated_title)) }}</p>
         <p class="leader-title">{{ data_get($teamChair?->extra, 'role') }}</p>
       </div>
       <div class="team-lead-bio">
@@ -487,7 +487,7 @@
             />
           </div>
           <div class="profile-desc">
-            <p class="leader-name">{!! $teamMember['member']?->translated_title !!}</p>
+            <p class="leader-name">{{ strip_tags(html_entity_decode($teamMember['member']?->translated_title)) }}</p>
             <p class="leader-title">{{ data_get($teamMember['member']?->extra, 'role') }}</p>
           </div>
         </div>
@@ -515,7 +515,7 @@
             />
           </div>
           <div class="profile-desc">
-            <p class="leader-name">{!! $teamMember['member']?->translated_title !!}</p>
+            <p class="leader-name">{{ strip_tags(html_entity_decode($teamMember['member']?->translated_title)) }}</p>
             <p class="leader-title">{{ data_get($teamMember['member']?->extra, 'role') }}</p>
             <p>{!! $teamMember['member']?->translated_content !!}</p>
           </div>
@@ -549,7 +549,7 @@
             />
           </div>
           <div class="profile-desc">
-            <p class="leader-name">{!! $mentorCard['member']?->translated_title !!}</p>
+            <p class="leader-name">{{ strip_tags(html_entity_decode($mentorCard['member']?->translated_title)) }}</p>
           </div>
         </div>
         <div class="{{ $mentorCard['bioClass'] }}">
@@ -572,7 +572,7 @@
               @foreach ($faqItems as $item)
                 <div class="faq-item">
                   <div class="faq-question">
-                    <p>{{ $item->translated_title }}</p>
+                    <p>{{ strip_tags(html_entity_decode($item->translated_title)) }}</p>
                     <img src="{{ asset('svg/Arrow.svg') }}" alt="Arrow" />
                   </div>
 
@@ -611,19 +611,19 @@
     <section id="footer">
       <div class="top-layer overlay-bg-color"></div>
       <div class="contact">
-        <p class="footer-title">{{ $footerContactHeading?->translated_title }}</p>
+        <p class="footer-title">{{ strip_tags($footerContactHeading?->translated_title) }}</p>
         <p class="org-name">{!! $footerOrganisation?->translated_content !!}</p>
         <p class="address">{!! $footerAddress?->translated_content !!}</p>
         <p class="phone">
-          {{ $footerPhone?->translated_title }} <span>{!! $footerPhone?->translated_content !!}</span>
+          {{ strip_tags($footerPhone?->translated_title) }} <span>{{ strip_tags($footerPhone?->translated_content) }}</span>
         </p>
         <br />
-        <p class="footer-title">{{ $footerInquiriesHeading?->translated_title }}</p>
+        <p class="footer-title">{{ strip_tags(html_entity_decode($footerInquiriesHeading?->translated_title)) }}</p>
         <p class="email">{!! $footerEmail?->translated_content !!}</p>
       </div>
 
       <div class="social-media">
-        <p class="footer-title">{{ $footerSocialHeading?->translated_title }}</p>
+        <p class="footer-title">{{ strip_tags(html_entity_decode($footerSocialHeading?->translated_title)) }}</p>
         <a href="{{ $footerLinkedIn?->translated_content ?? '#' }}"> {{ $footerLinkedIn?->translated_title }} ↗ </a> <br />
         <a href="{{ $footerInstagram?->translated_content ?? '#' }}"> {{ $footerInstagram?->translated_title }} ↗ </a>
       </div>
@@ -631,12 +631,12 @@
         <img src="{{ asset('logo/ARAL.svg') }}" alt="Aral" id="footer-aral" />
         <img src="{{ asset('logo/SCHOOL.svg') }}" alt="School" id="footer-school" />
         <div class="footer-square"></div>
-      </div>
+      </div>  
       <div class="email-form overlay-bg-color">
-        <p class="footer-title">{{ $footerNewsletterHeading?->translated_title }}</p>
+        <p class="footer-title">{{ strip_tags(html_entity_decode($footerNewsletterHeading?->translated_title)) }}</p>
         <form action="" class="form">
-          <input type="email" placeholder="{{ $footerNewsletterPlaceholder?->translated_content }}" />
-          <button type="submit">{{ $footerNewsletterButton?->translated_content }}</button>
+          <input type="email" placeholder="{{ strip_tags(html_entity_decode($footerNewsletterPlaceholder?->translated_content)) }}" />
+          <button type="submit">{{ strip_tags($footerNewsletterButton?->translated_content) }}</button>
         </form>
       </div>
 
@@ -645,13 +645,13 @@
           <img src="{{ asset('svg/ACDF_logo-en 1.svg') }}" alt="ACDF logo" />
         </div>
         <div class="organiser">
-          <p>{{ $footerOrganiserHeading?->translated_title }}</p>
+          <p>{{ strip_tags(html_entity_decode($footerOrganiserHeading?->translated_title)) }}</p>
           <p>{!! $footerOrganiserBody?->translated_content !!}</p>
         </div>
         <div class="privacy">
           <ul>
-            <li><a href="{{ $footerPrivacyLink?->translated_content ?? '#' }}">{{ $footerPrivacyLink?->translated_title }}</a></li>
-            <li><a href="{{ $footerCookieLink?->translated_content ?? '#' }}">{{ $footerCookieLink?->translated_title }}</a></li>
+            <li><a href="{{ $footerPrivacyLink?->translated_content ?? '#' }}">{{ strip_tags($footerPrivacyLink?->translated_title) }}</a></li>
+            <li><a href="{{ $footerCookieLink?->translated_content ?? '#' }}">{{ strip_tags($footerCookieLink?->translated_title) }}</a></li>
           </ul>
         </div>
       </div>
