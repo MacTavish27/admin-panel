@@ -138,7 +138,7 @@
     <section id="navbar">
       <div id="banner">
         <div class="banner-textbox container">
-          <p>Apply to the Aral School - Deadline 5th of October 2025</p>
+          <p>{!! $applyCta?->translated_title !!} — {!! $applyCta?->translated_content !!}</p>
         </div>
         <div class="lang-togglebox">
           @foreach(['en', 'uz', 'kk', 'ru'] as $lang)
@@ -560,14 +560,19 @@
       <div class="faq-box">
         <p class="faq-title">{{ $faqHeading?->translated_title ?? 'FAQ' }}</p>
 
-        @foreach ($faqSections as $section)
-          @php
-              $faqItems = $section->contents->where('kind', 'faq_item')->values();
-          @endphp
+      @foreach ($faqSections as $section)
+        @php
+            $faqItems = $section->contents
+                ->where('kind', 'faq_item')
+                ->values();
 
-          @if ($faqItems->isNotEmpty())
+            $chunks = $faqItems->chunk(5);
+        @endphp
+
+        @foreach ($chunks as $chunkIndex => $chunk)
+          @if ($chunkIndex < 2) 
             <div class="faq-listbox">
-              @foreach ($faqItems as $item)
+              @foreach ($chunk as $item)
                 <div class="faq-item">
                   <div class="faq-question">
                     <p>{{ strip_tags(html_entity_decode($item->translated_title)) }}</p>
@@ -582,6 +587,7 @@
             </div>
           @endif
         @endforeach
+      @endforeach
       </div>
       <img src="{{ asset('gallery/FAQ-1.jpg') }}" alt="faq-1" class="faq-img-1" />
       <img src="{{ asset('gallery/FAQ-2.jpg') }}" alt="faq-2" class="faq-img-2" />
