@@ -3269,12 +3269,14 @@ body {
         grid-column: 1 / -1;
         order: 1;
         height: auto;
-        padding: 18px 10px 20px;
+        margin-top: -47px;
+        padding: 65px 10px 20px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
         border-bottom: 1px solid #000;
+        border-top: 1px solid #000;
         border-right: 0;
     }
 
@@ -3323,7 +3325,6 @@ body {
         height: auto;
         min-height: 132px;
         padding: 12px 8px 12px 10px;
-        border-right: 1px solid rgba(0, 0, 0, 0.5);
     }
 
     .social-media {
