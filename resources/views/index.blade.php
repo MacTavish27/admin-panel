@@ -206,7 +206,7 @@
     </section>
 
     <section id="header">
-      <div id="header-image">
+      <div class="header-image">
         <img src="{{ $headerSection?->image_url }}" alt="Header Image" />
       </div>
       <div class="header-box overlay-bg-color">
@@ -317,25 +317,30 @@
       <div class="research-description overlay-bg-color">
         <p>{!! $researchBody?->translated_content !!}</p>
       </div>
+      
       <div class="theme-card-left">
         <div class="image-card">
           <img src="{{ $researchThemeFood?->image_url }}" alt="Food system image" />
-          {!! $researchThemeFood?->translated_content !!}
-          <div class="number"><p>{{ data_get($researchThemeFood?->extra, 'number') }}</p></div>
+          <span class="number">{{ data_get($researchThemeFood?->extra, 'number') }}</span>
+          <div class="title-card">
+          {!! $researchThemeFood?->translated_title !!}
+          </div>
         </div>
-        <div class="title-card">
-          <p>{!! $researchThemeFood?->translated_title !!}</p>
+        <div class="image-title">
+          {!! $researchThemeFood?->translated_content !!}
         </div>
       </div>
 
       <div class="theme-card-right">
         <div class="image-card">
           <img src="{{ $researchThemeWater?->image_url }}" alt="Aral Water image" />
-          {!! $researchThemeWater?->translated_content !!}
-          <div class="number"><p>{{ data_get($researchThemeWater?->extra, 'number') }}</p></div>
+          <span class="number">{{ data_get($researchThemeWater?->extra, 'number') }}</span>
+          <div class="title-card">
+          {!! $researchThemeWater?->translated_title !!}
+          </div>
         </div>
-        <div class="title-card">
-          <p>{!! $researchThemeWater?->translated_title !!}</p>
+        <div class="image-title">         
+            {!! $researchThemeWater?->translated_content !!}
         </div>
       </div>
     </section>
