@@ -1659,7 +1659,7 @@ body {
         min-height: 500px;
     }
 
-    #header-image {
+    .header-image {
         height: 500px;
         object-fit: cover;
         object-position: center;
@@ -1850,12 +1850,12 @@ body {
         grid-template-columns: 1fr;
     }
 
-    #header-image,
+    .header-image,
     .header-box {
         width: 100%;
     }
 
-    #header-image {
+    .header-image {
         height: auto;
         min-height: 420px;
     }
@@ -2239,17 +2239,17 @@ body {
         grid-template-columns: 1fr;
     }
 
-    #header-image,
+    .header-image,
     .header-box {
         grid-column: 1 / -1;
     }
 
-    #header-image {
+    .header-image {
         height: 480px;
         min-height: 0;
     }
 
-    #header-image img {
+    .header-image img {
         object-fit: cover;
         object-position: center;
     }
@@ -2996,11 +2996,11 @@ body {
         padding: 18px 10px 0;
     }
 
-    #header-image {
+    .header-image {
         height: 309px;
     }
 
-    #header-image img {
+    .header-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
