@@ -158,6 +158,7 @@
           <img src="{{ asset('logo/ARAL.svg') }}" alt="Aral" />
         </div>
         <div class="navbar-square"></div>
+         <div class="navbar-square-desktop"></div>
         <div class="menu">
           <ul>
             @foreach($menuItems as $item)

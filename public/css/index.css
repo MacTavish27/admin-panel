@@ -120,6 +120,16 @@ img {
     -webkit-backdrop-filter: blur(24px);
 }
 
+.navbar-square-desktop {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    background-color: #000;
+    left: 50%;
+    bottom: -10.5px;
+    transform: translateX(-50%);
+}
+
 #banner {
     display: flex;
     height: 40px;
@@ -2023,6 +2033,10 @@ body {
 @media (max-width: 968px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar-square-desktop {
+        display: none;
     }
 
     #intro,
